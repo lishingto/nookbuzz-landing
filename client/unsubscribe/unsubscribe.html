@@ -4,13 +4,21 @@
         <p>
             We are sad to see you go and hope that you would share the same interest in NookBuzz as we do. However, if you wish to unsubscribe and remove yourself from our contacts list, you are free to do so and we respect your decision.
         </p>
+        <p class="alert alert-danger" ng-if="unsubscribe.state === 'done'">
+            Unsubscribe from NookBuzz Alert has been completed. We hope to have future opportunities to work with you. You may always resubmit your email should you wish to work with NookBuzz again!
+            <br />
+            Click <a ui-sref="index">here</a> to return to the front page.
+        </p>
+        <p class="alert alert-danger" ng-if="unsubscribe.state === 'fail'">
+            Unsubscribe is not successful. Please send an email to <a href="mailto:hello@nookbuzz.com">hello@nookbuzz.com</a> for manual removal.
+        </p>
     </div>
 </div>
-<div class="row">
+<div class="row" ng-if="unsubscribe.state == null">
     <div class="col-md-4 col-md-offset-2">
         <button class="btn btn-danger" ng-click="unsubscribe.unsub()">Yes, Please Remove My Mail</button>
     </div>
     <div class="col-md-4">
-        <button class="btn btn-danger" ng-click="unsubscribe.staysub()">No, I would like to receive news about NookBuzz</button>
+        <button class="btn btn-warning" ng-click="unsubscribe.staysub()">No, I would like to receive news about NookBuzz</button>
     </div>
 </div>

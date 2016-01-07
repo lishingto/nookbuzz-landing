@@ -32,7 +32,7 @@ function subscriberPanelCtrl($scope, $reactive, $modal) {
         open: function () {
             var modalInstance = $modal.open({
                 animation: true,
-                templateUrl: 'emailList.html',
+                templateUrl: 'client/admin/subscriberPanel/verified-email-list-modal.html',
                 controllerAs: 'emailList',
                 controller: emailListCtrl,
                 size: 'lg',

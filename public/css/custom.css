@@ -1,0 +1,18 @@
+h1{
+ font-size: 3em !important;   
+}
+
+a.custlink{
+    color:#FFFFFF !important;
+}
+
+.custModal{
+    word-wrap: break-word;
+    color:#000000;
+}
+
+.subscribeForm{
+    font-size: 3rem !important;
+    height: 100px !important;
+    overflow: auto !important;
+}

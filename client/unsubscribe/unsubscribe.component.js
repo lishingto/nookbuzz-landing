@@ -7,12 +7,22 @@ angular.module('nblanding').directive('unsubscribe', function () {
     }
 });
 
-function unsubscribeCtrl($scope) {
-    this.unsub = function(){
-        
-    }
-    
-    this.staysub = function(){
-        
-    }
+function unsubscribeCtrl($scope, $reactive, $state, $stateParams) {
+    $reactive(this).attach($scope);
+
+    this.helpers({
+        state: () => {
+            return Session.get('unsubState');
+        }
+    });
+
+    this.unsub = function () {
+        Meteor.call('unsubscribe', $stateParams.email, $stateParams.ucode, function (error, result) {
+            Session.set('unsubState', result);
+        });
+    };
+
+    this.staysub = function () {
+        $state.go('index');
+    };
 }

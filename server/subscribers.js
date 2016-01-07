@@ -6,11 +6,13 @@ Meteor.publish("subscribers", function () {
 
 Meteor.methods({
     subscribe: function (email) {
-        var dup = Subscribers.findOne({email: email});
-        if(dup){
-            throw new Meteor.error("Email Already Exists!");   
+        var dup = Subscribers.findOne({
+            email: email
+        });
+        if (dup) {
+            throw new Meteor.Error("Email Already Exists!");
         }
-        
+
         var addSub = Meteor.wrapAsync(function (email, cb) {
             Subscribers.insert({
                 email: email,
@@ -28,6 +30,7 @@ Meteor.methods({
         sendEmail(id);
     },
     removeSub: function (id) {
+        //Admin remove, only allow when there is user
         if (this.userId) {
             Subscribers.remove({
                 _id: id
@@ -40,9 +43,9 @@ Meteor.methods({
         });
 
         if (sub) {
-            if(sub.isVerified === true){
+            if (sub.isVerified === true) {
                 return 'already';
-            }else if (sub.vcode === vcode) {
+            } else if (sub.vcode === vcode) {
                 //verification success   
                 Subscribers.update({
                     _id: sub._id
@@ -57,23 +60,25 @@ Meteor.methods({
                 return 'fail';
             }
         } else {
-            throw new Meteor.error("Email not found");
+            throw new Meteor.Error("Email not found");
         }
     },
     unsubscribe: function (email, ucode) {
         var sub = Subscribers.findOne({
             email: email
         });
-        
-        if(sub){
-            if(sub.ucode === ucode){
-                Subscribers.remove({_id:sub._id});   
-                return 'success';
-            }else{
-                return 'fail';   
+
+        if (sub) {
+            if (sub.ucode === ucode) {
+                Subscribers.remove({
+                    _id: sub._id
+                });
+                return 'done';
+            } else {
+                return 'fail';
             }
         } else {
-            throw new Meteor.error("Email not found");
+            throw new Meteor.Error("Email not found");
         }
     }
 });

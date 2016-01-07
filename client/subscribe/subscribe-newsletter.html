@@ -1,60 +1,65 @@
 <!-- main body of content -->
-<div class="row">
-    <div class="col-md-2 col-md-offset-5">
-        <img src="img/icon.png">
-    </div>
-</div>
-<div class="row">
-    <h1>Something's Buzzing</h1>
-
-</div>
-<div class="row">
-    <div class="col-md-12" style="height: 5vh">
-        &nbsp;
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
-        <p>Drop your email in here, we can't wait to tell you more about what we're working on!</p>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-md-12" style="height: 12vh">
-        &nbsp;
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-md-6 col-md-offset-3  col-lg-4 col-lg-offset-4">
-        <form ng-submit="subscribeNewsletter.thanks()">
-            <div class="input-group input-group-lg">
-                <input type="email" class="form-control form-control-lg" required ng-model="subscribeNewsletter.email" placeholder="Here's my Email...">
-                <span class="input-group-btn">
-                            <button class="btn btn-primary btn-lg" type="submit">Thanks!</button></span>
-            </div>
-        </form>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-md-12" style="height: 22vh">
-        &nbsp;
-    </div>
-</div>
-
-<div class="row" style="text-align:left;">
-    <div class="col-md-6 col-md-offset-3  col-lg-4 col-lg-offset-4">
+<div>
+    <div class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3">
         <div class="row">
-            <div class="col-md-6">
-                <a class="custlink" href="#"><img src="img/facebook.png"> /NookBuzz</a>
-                <br />
-
-                <a class="custlink" href="#"><img src="img/instagram.png"> @NookBuzz</a>
+            <div class="col-md-12">
+                <img src="img/icon.png">
             </div>
+        </div>
+        <div class="row">
+            <h1>Something's Buzzing</h1>
 
-            <div class="col-md-6" style="text-align:right">
-                <a class="custlink" href="mailto:hello@nookbuzz.com" style="font-style:italic">hello@nookbuzz.com</a>
+        </div>
+        <div class="row">
+            <div class="col-md-12" style="height: 5vh">
+                &nbsp;
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p>Drop your email in here, we can't wait to tell you more about what we're working on!</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12" style="height: 12vh">
+                &nbsp;
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <form ng-submit="subscribeNewsletter.thanks()">
+                    <div class="input-group input-group-lg">
+                        <input type="email" class="form-control form-control-lg subscribeForm" required ng-model="subscribeNewsletter.email" placeholder="Here's my Email...">
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary btn-lg subscribeForm" style="width:150px;" type="submit">Thanks!</button>
+                </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12" style="height: 22vh">
+                &nbsp;
+            </div>
+        </div>
+
+        <div class="row" style="text-align:left;">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <a class="custlink" href="#"><img src="img/facebook.png"> /NookBuzz</a>
+                        <br />
+
+                        <a class="custlink" href="https://www.instagram.com/NookBuzz/"><img src="img/instagram.png"> @NookBuzz</a>
+                    </div>
+
+                    <div class="col-md-6" style="text-align:right">
+                        <a class="custlink" href="mailto:hello@nookbuzz.com" style="font-style:italic">hello@nookbuzz.com</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

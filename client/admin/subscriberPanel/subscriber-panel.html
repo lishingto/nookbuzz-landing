@@ -1,20 +1,14 @@
-<script type="text/ng-template" id="emailList.html">
-    <div class="modal-header custModal">
-        <h3 class="modal-title">Verified Mail Text List</h3>
+<div class="row">
+    <div class="col-md-8">
+        <h3>Subscribed Emails</h3>
     </div>
-    <div class="modal-body custModal">
-        <div class="well">{{emailList.mails}}</p></div>
+    <div class="col-md-4">
+        <div class="btn-group" role="group">
+            <button class="btn btn-primary" ng-click="subscriberPanel.textList.open();">Copy All Verified Emails</button>
+        </div>
     </div>
-    <div class="modal-footer custModal">
-        <button class="btn btn-warning" type="button" ng-click="emailList.close()">Close</button>
-    </div>
-</script>
-
-<h3>Subscribed Emails</h3>
-
-<div class="btn-group" role="group">
-    <button class="btn btn-primary" ng-click="subscriberPanel.textList.open();">Copy All Verified Emails</button>
 </div>
+
 
 <table class="table table-bordered" style="background-color: #FFFFFF; color: #000000;">
     <tr>
@@ -22,6 +16,7 @@
         <th>Email Address</th>
         <th>Date Submitted</th>
         <th>Verified</th>
+        <th>Delete</th>
     </tr>
 
     <tr dir-paginate="subscriber in subscriberPanel.subscribers | itemsPerPage: 10">
