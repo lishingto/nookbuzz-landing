@@ -1,0 +1,23 @@
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <form ng-submit="adminLogin.login()">
+            <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 form-control-label">Username</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputUsername" required ng-model="adminLogin.username" placeholder="Username">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputPassword3" class="col-sm-2 form-control-label">Password</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" id="inputPassword3" required ng-model="adminLogin.password" placeholder="Password">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary">Log In</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

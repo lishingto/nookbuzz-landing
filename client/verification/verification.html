@@ -1,0 +1,8 @@
+<h1>Subscription Verification</h1>
+
+
+<h2>Status : {{verification.isValid}}</h2>
+
+<p ng-show="verification.isValid == null">Please Wait, While we verify ...</p>
+<p ng-show="verification.isValid === true">Verification Successful! Thank you!</p>
+<p ng-show="verification.isValid === false">Sorry Bad Verification Information, please try again.</p>
