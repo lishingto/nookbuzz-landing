@@ -1,1 +1,1 @@
-angular.module('nblanding', ['angular-meteor', 'angular-meteor.auth', 'ui.router', 'angularUtils.directives.dirPagination']);
+angular.module('nblanding', ['angular-meteor', 'angular-meteor.auth', 'ui.router', 'ui.bootstrap', 'angularUtils.directives.dirPagination']);

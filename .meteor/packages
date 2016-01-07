@@ -22,3 +22,7 @@ accounts-base
 angular-meteor-auth
 meteorhacks:ssr
 angularutils:pagination
+
+
+npm-container
+angularui:angular-ui-bootstrap

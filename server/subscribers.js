@@ -6,6 +6,11 @@ Meteor.publish("subscribers", function () {
 
 Meteor.methods({
     subscribe: function (email) {
+        var dup = Subscribers.findOne({email: email});
+        if(dup){
+            throw new Meteor.error("Email Already Exists!");   
+        }
+        
         var addSub = Meteor.wrapAsync(function (email, cb) {
             Subscribers.insert({
                 email: email,
@@ -35,7 +40,9 @@ Meteor.methods({
         });
 
         if (sub) {
-            if (sub.vcode === vcode) {
+            if(sub.isVerified === true){
+                return 'already';
+            }else if (sub.vcode === vcode) {
                 //verification success   
                 Subscribers.update({
                     _id: sub._id
@@ -45,16 +52,29 @@ Meteor.methods({
                     }
                 });
                 console.log('Verify ' + sub.email);
-                return 'true';
+                return 'valid';
             } else {
-                return 'false';
+                return 'fail';
             }
         } else {
             throw new Meteor.error("Email not found");
         }
     },
     unsubscribe: function (email, ucode) {
-
+        var sub = Subscribers.findOne({
+            email: email
+        });
+        
+        if(sub){
+            if(sub.ucode === ucode){
+                Subscribers.remove({_id:sub._id});   
+                return 'success';
+            }else{
+                return 'fail';   
+            }
+        } else {
+            throw new Meteor.error("Email not found");
+        }
     }
 });
 

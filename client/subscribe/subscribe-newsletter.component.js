@@ -12,10 +12,14 @@ function subscribeNewsletterCtrl($scope) {
     this.email = "";
 
     this.thanks = function () {
-
-        alert("receiving " + this.email);
-
-        Meteor.call('subscribe', this.email);
+        var mail = this.email;
+        Meteor.call('subscribe', mail, function (error, result) {
+            if (error) {
+                alert("Unable to subscribe: " + error);
+            } else {
+                alert("Subscribed " + mail);
+            }
+        });
 
         this.email = "";
     };

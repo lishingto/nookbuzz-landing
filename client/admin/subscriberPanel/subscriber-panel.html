@@ -1,5 +1,22 @@
-<h1>Subscribed Emails</h1>
-<table class="table table-bordered"  style="background-color: #FFFFFF; color: #000000;">
+<script type="text/ng-template" id="emailList.html">
+    <div class="modal-header custModal">
+        <h3 class="modal-title">Verified Mail Text List</h3>
+    </div>
+    <div class="modal-body custModal">
+        <div class="well">{{emailList.mails}}</p></div>
+    </div>
+    <div class="modal-footer custModal">
+        <button class="btn btn-warning" type="button" ng-click="emailList.close()">Close</button>
+    </div>
+</script>
+
+<h3>Subscribed Emails</h3>
+
+<div class="btn-group" role="group">
+    <button class="btn btn-primary" ng-click="subscriberPanel.textList.open();">Copy All Verified Emails</button>
+</div>
+
+<table class="table table-bordered" style="background-color: #FFFFFF; color: #000000;">
     <tr>
         <th>Data ID</th>
         <th>Email Address</th>
@@ -12,9 +29,10 @@
         <td>{{subscriber.email}}</td>
         <td>{{subscriber.dateSubmitted}}</td>
         <td>{{subscriber.isVerified}}</td>
-        <td><button type="button" class="btn btn-danger" ng-click="subscriberPanel.deleteSub(subscriber._id)">DEL</button></td>
+        <td>
+            <button type="button" class="btn btn-danger" ng-click="subscriberPanel.deleteSub(subscriber._id)">DEL</button>
+        </td>
     </tr>
 </table>
-
 
 <dir-pagination-controls></dir-pagination-controls>

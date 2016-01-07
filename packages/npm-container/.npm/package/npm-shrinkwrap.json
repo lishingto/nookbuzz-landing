@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "angular": {
+      "version": "1.4.8"
+    },
+    "angular-ui-bootstrap": {
+      "version": "0.14.3"
+    }
+  }
+}

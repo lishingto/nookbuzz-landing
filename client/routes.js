@@ -14,8 +14,8 @@ angular.module('nblanding')
         })
 
         .state('unsubscribe', {
-            url: '/unsubscribe?email&ucode',
-            template: ''
+            url: '/unsub?email&ucode',
+            template: '<unsubscribe></unsubscribe>'
         })
 
         .state('admin-login', {
