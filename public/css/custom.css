@@ -16,3 +16,7 @@ a.custlink{
     height: 100px !important;
     overflow: auto !important;
 }
+
+div.bootbox{
+    color: #000000 !important;
+}

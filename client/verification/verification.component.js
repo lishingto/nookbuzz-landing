@@ -37,7 +37,7 @@ function verificationCtrl($scope, $stateParams, $reactive) {
     Meteor.call('verify', this.email, this.vcode, function (error, result) {
         var vstate = "fail";
         if (error) {
-            alert(error);
+            bootbox.alert(error);
         } else {
             vstate = result;
         }

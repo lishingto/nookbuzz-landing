@@ -41,15 +41,45 @@ angular.module('nblanding')
         })
 
         .state('admin.mailer', {
-            url: '/mailer',
-            parent: 'admin',
-            views: {
-                admin: {
-                    template: '<mailer-panel></mailer-panel>'
+                url: '/mailer',
+                parent: 'admin',
+                views: {
+                    admin: {
+                        template: '<mailer-panel></mailer-panel>'
+                    }
+                },
+                resolve: resolver
+            })
+            .state('admin.mailer-form-create', {
+                url: '/mailer/create',
+                parent: 'admin',
+                views: {
+                    admin: {
+                        template: '<mailer-form></mailer-form>'
+                    }
+                },
+                resolve: resolver
+            })
+            .state('admin.mailer-form-edit', {
+                url: '/mailer/:mailerId',
+                parent: 'admin',
+                views: {
+                    admin: {
+                        template: '<mailer-form></mailer-form>'
+                    }
+                },
+                resolve: resolver
+            });
+
+        var resolver = {
+            currentUser: ($q) => {
+                if (Meteor.userId() == null) {
+                    return $q.reject('AUTH_REQUIRED');
+                } else {
+                    return $q.resolve();
                 }
-            },
-            resolve: resolver
-        });
+            }
+        };
 
 
         $urlRouterProvider.otherwise("/");
@@ -60,13 +90,3 @@ angular.module('nblanding')
             }
         });
     });
-
-var resolver = {
-    currentUser: ($q) => {
-        if (Meteor.userId() == null) {
-            return $q.reject('AUTH_REQUIRED');
-        } else {
-            return $q.resolve();
-        }
-    }
-};

@@ -88,19 +88,16 @@ function sendEmail(id) {
         _id: id
     });
 
-
-    var host = "http://localhost:3000";
-
     SSR.compileTemplate('regEmail', Assets.getText('mail_templates/reg-email.html'));
 
     var emailData = {
-        verifyUrl: host + "/verify?email=" + sub.email + "&vcode=" + sub.vcode,
-        unsubUrl: host + "/unsub?email=" + sub.email + "&ucode=" + sub.ucode
+        verifyUrl: Meteor.settings.public.host + "/verify?email=" + sub.email + "&vcode=" + sub.vcode,
+        unsubUrl: Meteor.settings.public.host + "/unsub?email=" + sub.email + "&ucode=" + sub.ucode
     };
 
     Email.send({
         to: sub.email,
-        from: "hello@nookbuzz.com",
+        from: Meteor.settings.public.emailFrom,
         subject: "Nookbuzz thanks You for your interest!",
         html: SSR.render('regEmail', emailData)
     });

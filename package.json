@@ -1,16 +1,15 @@
 {
-  "name": "nblanding",
-  "version": "0.0.3",
-  "description": "Landing Page and Newsletter for Nookbuzz",
-  "main": "index.html",
+  "name": "landingpage",
+  "version": "0.0.0",
+  "description": "//NookBuzz Landing page and Newsletter system",
+  "main": "index.js",
   "dependencies": {
-    "angular": "^1.4.8",
-    "angular-ui-bootstrap": "0.14.3"
+    "angular": "^1.4.8"
   },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Li Shing To",
+  "author": "",
   "license": "ISC"
 }

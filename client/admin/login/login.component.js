@@ -7,24 +7,24 @@ angular.module('nblanding').directive('adminLogin', function () {
     }
 });
 
-function adminLoginCtrl($scope, $state, $auth) {
-    if($auth.currentUser){
+function adminLoginCtrl($scope, $state) {
+    if (Meteor.userId()) {
         $state.go('admin.subscribers');
     }
-    
-    this.login = function(){
+
+    this.login = function () {
         Meteor.loginWithPassword({
-            username: this.username
-        }, this.password,
-                                
-        function(error){
-            if(error){
-                alert("Error! Invalid username or password!");   
-            }else{
-                $state.go('admin.subscribers');
-            }
-        });
-        
+                username: this.username
+            }, this.password,
+
+            function (error) {
+                if (error) {
+                    alert("Error! Invalid username or password!");
+                } else {
+                    $state.go('admin.subscribers');
+                }
+            });
+
         this.username = "";
         this.password = "";
     }

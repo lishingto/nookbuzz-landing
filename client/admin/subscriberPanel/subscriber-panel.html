@@ -12,18 +12,20 @@
 
 <table class="table table-bordered" style="background-color: #FFFFFF; color: #000000;">
     <tr>
-        <th>Data ID</th>
         <th>Email Address</th>
         <th>Date Submitted</th>
         <th>Verified</th>
+        <th>View</th>
         <th>Delete</th>
     </tr>
 
     <tr dir-paginate="subscriber in subscriberPanel.subscribers | itemsPerPage: 10">
-        <td>{{subscriber._id}}</td>
         <td>{{subscriber.email}}</td>
         <td>{{subscriber.dateSubmitted}}</td>
         <td>{{subscriber.isVerified}}</td>
+        <td>
+            <button type="button" class="btn btn-info" ng-click="subscriberPanel.viewSub(subscriber)">VIEW</button>
+        </td>
         <td>
             <button type="button" class="btn btn-danger" ng-click="subscriberPanel.deleteSub(subscriber._id)">DEL</button>
         </td>

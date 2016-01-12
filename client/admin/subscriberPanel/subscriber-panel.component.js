@@ -7,7 +7,7 @@ angular.module('nblanding').directive('subscriberPanel', function () {
     }
 });
 
-function subscriberPanelCtrl($scope, $reactive, $modal) {
+function subscriberPanelCtrl($scope, $reactive) {
     $reactive(this).attach($scope);
     var subscriberPanel = this;
 
@@ -25,37 +25,46 @@ function subscriberPanelCtrl($scope, $reactive, $modal) {
     });
 
     this.deleteSub = function (id) {
-        Meteor.call('removeSub', id);
+        bootbox.confirm("Are you sure?", function (isOk) {
+            if (isOk)
+                Meteor.call('removeSub', id);
+        });
+    }
+
+    this.viewSub = function (subObj) {
+        var detailStr = '<table class="table table-bordered">';
+
+        for (var p in subObj) {
+            detailStr += '<tr><th>' + p + '</th><td>' + subObj[p] + '</td>'
+        }
+        detailStr += '</table>';
+
+        bootbox.dialog({
+            title: 'Verified Mail Text List',
+            message: detailStr,
+            size: 'large',
+            closeButton: true,
+            backdrop: true
+        });
     }
 
     this.textList = {
         open: function () {
-            var modalInstance = $modal.open({
-                animation: true,
-                templateUrl: 'client/admin/subscriberPanel/verified-email-list-modal.html',
-                controllerAs: 'emailList',
-                controller: emailListCtrl,
-                size: 'lg',
-                resolve: {
-                    mails: function () {
-                        if (subscriberPanel.verified.length === 0)
-                            return "";
 
-                        var listStr = subscriberPanel.verified[0].email;
-                        for (var i = 1; i < subscriberPanel.verified.length; i++) {
-                            listStr += '; ' + subscriberPanel.verified[i].email;
-                        }
-                        return listStr;
-                    }
-                }
+            if (subscriberPanel.verified.length === 0)
+                return "";
+
+            var listStr = subscriberPanel.verified[0].email;
+            for (var i = 1; i < subscriberPanel.verified.length; i++) {
+                listStr += '; ' + subscriberPanel.verified[i].email;
+            }
+
+            bootbox.dialog({
+                title: 'Verified Mail Text List',
+                message: '<div class="well"><p>' + listStr + '</p></div>',
+                closeButton: true,
+                backdrop: true
             });
         }
-    }
-}
-
-function emailListCtrl($scope, $modalInstance, mails) {
-    this.mails = mails;
-    this.close = function () {
-        $modalInstance.dismiss();
     }
 }
