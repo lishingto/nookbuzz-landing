@@ -1,22 +1,24 @@
 {
-  "name": "landingpage",
+  "name": "Nookbuzz Landing Page",
+  "description": "//NookBuzz Landing page and Newsletter system",
+  "main": "index.html",
   "authors": [
     "Li Shing To <lishingto@gmail.com>"
   ],
-  "description": "",
-  "main": "index.html",
+  "license": "ISC",
   "moduleType": [],
-  "license": "MIT",
-  "homepage": "",
+  "homepage": "https://www.nookbuzz.com",
   "private": true,
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
     "test",
-    "tests"
+    "tests",
+    "public/.js/bower_components"
   ],
   "dependencies": {
+    "bootbox.js": "bootbox#~4.4.0",
     "bootstrap": "~3.3.6"
   }
 }

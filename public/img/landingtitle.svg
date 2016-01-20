@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="613.1889"
+   height="63.256248"
+   id="svg15229"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="landingtitle.svg">
+  <defs
+     id="defs15231" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#000000"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.35"
+     inkscape:cx="-15.548457"
+     inkscape:cy="-28.371889"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer2"
+     showgrid="false"
+     inkscape:window-width="1848"
+     inkscape:window-height="1057"
+     inkscape:window-x="64"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <metadata
+     id="metadata15234">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Layer"
+     transform="translate(-61.977029,-440.73404)">
+    <text
+       y="489.80536"
+       x="58.949154"
+       style="font-size:15px;display:inline"
+       id="text100">
+      <tspan
+         style="font-size:67.40312195px;font-variant:normal;font-weight:300;font-stretch:normal;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:Open Sans Light;-inkscape-font-specification:OpenSans-Light"
+         x="58.949154 95.683823 135.18205 194.69902 231.70329 254.28337 294.05121 309.28424 349.05219 384.30402 394.07745 425.48724 443.01215 485.2739 525.04181 556.11456 587.18744 602.42059 642.18842"
+         y="489.80536"
+         sodipodi:role="line"
+         id="tspan102">Something’s Buzzing</tspan>
+    </text>
+  </g>
+</svg>

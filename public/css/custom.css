@@ -1,22 +1,82 @@
-h1{
- font-size: 3em !important;   
+h1 {
+    font-size: 5.5em !important;
+    font-family: opensans-light;
+    text-align: center;
 }
 
-a.custlink{
-    color:#FFFFFF !important;
+a.custlink {
+    color: #FFFFFF !important;
+    font-size: 1.2em !important;
+    text-align: left;
+    white-space: nowrap;
 }
 
-.custModal{
+.custModal {
     word-wrap: break-word;
-    color:#000000;
+    color: #000000;
 }
 
-.subscribeForm{
+.subscribeForm {
     font-size: 3rem !important;
     height: 100px !important;
     overflow: auto !important;
 }
 
-div.bootbox{
+button.subscribeForm {
+    width: 150px;
+}
+
+div.bootbox {
     color: #000000 !important;
+}
+
+p.front-body {
+    font-size: 1.2em !important;
+}
+
+.input-group-vertical {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+}
+
+.input-group-vertical input.subscribeForm {
+    border-top-right-radius: 6px !important;
+    border-top-left-radius: 6px !important;
+    border-bottom-right-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+    text-align: center;
+}
+
+.input-group-vertical .form-group {
+    margin-bottom: 0;
+}
+
+.input-group-vertical .form-group:not(:last-child) .form-control:not(:focus) {
+    border-bottom-color: transparent;
+}
+
+.input-group-vertical .form-group:first-child .form-control {
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+.input-group-vertical .form-group:last-child .form-control {
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    top: -2px;
+}
+
+.input-group-vertical .input-group-btn {
+    display: inline-block;
+    width: 100%;
+}
+
+.input-group-vertical .input-group-btn .btn {
+    min-width: 100%;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+    border-bottom-right-radius: 6px !important;
+    border-bottom-left-radius: 6px !important;
+    top: -2px;
 }

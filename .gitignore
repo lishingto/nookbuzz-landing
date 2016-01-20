@@ -1,1 +1,4 @@
 settings-production.json
+public/.js/bower_components
+node_modules
+*tar.gz
