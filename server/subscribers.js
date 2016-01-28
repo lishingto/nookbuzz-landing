@@ -16,7 +16,6 @@ Meteor.methods({
               throw new Meteor.Error("Email Already Exists!");
           }
         }else{
-          console.log("no such email");
           var addSub = Meteor.wrapAsync(function (email, cb) {
               Subscribers.insert({
                   email: email,
