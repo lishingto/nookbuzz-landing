@@ -9,25 +9,31 @@ Meteor.methods({
         var dup = Subscribers.findOne({
             email: email
         });
-        if (dup) {
-            throw new Meteor.Error("Email Already Exists!");
+        if(dup){
+          if (dup["isVerified"] == false) {
+              sendEmail(dup['_id']);
+          }else if(dup["isVerified"] == true){
+              throw new Meteor.Error("Email Already Exists!");
+          }
+        }else{
+          console.log("no such email");
+          var addSub = Meteor.wrapAsync(function (email, cb) {
+              Subscribers.insert({
+                  email: email,
+                  dateSubmitted: new Date(),
+                  isVerified: false,
+                  vcode: randomString(),
+                  ucode: randomString(),
+                  sentMail: []
+              }, function (error, id) {
+                  console.log(id);
+                  cb(error, id);
+              });
+          });
+          var id = addSub(email);
+          console.log('Received Email ' + email);
+          sendEmail(id);
         }
-
-        var addSub = Meteor.wrapAsync(function (email, cb) {
-            Subscribers.insert({
-                email: email,
-                dateSubmitted: new Date(),
-                isVerified: false,
-                vcode: randomString(),
-                ucode: randomString(),
-                sentMail: []
-            }, function (error, id) {
-                cb(error, id);
-            });
-        });
-        var id = addSub(email);
-        console.log('Received Email ' + email);
-        sendEmail(id);
     },
     removeSub: function (id) {
         //Admin remove, only allow when there is user
@@ -46,7 +52,7 @@ Meteor.methods({
             if (sub.isVerified === true) {
                 return 'already';
             } else if (sub.vcode === vcode) {
-                //verification success   
+                //verification success
                 Subscribers.update({
                     _id: sub._id
                 }, {
