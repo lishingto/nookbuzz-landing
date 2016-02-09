@@ -28,3 +28,6 @@ angularutils:pagination
 
 npm-container
 sebastianilves:angular-text-angular
+cfs:standard-packages
+cfs:filesystem
+meteorhacks:npm

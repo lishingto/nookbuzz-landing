@@ -100,12 +100,17 @@ function sendEmail(id) {
         unsubUrl: Meteor.settings.public.host + "/unsub?email=" + sub.email + "&ucode=" + sub.ucode
     };
 
+    process.env.MAIL_URL = Meteor.settings.zoho.smtp;
+
     Email.send({
         to: sub.email,
-        from: Meteor.settings.public.emailFrom,
+        //from: Meteor.settings.public.emailFrom,
+        from : "weicong@nookbuzz.com",
         subject: "Nookbuzz thanks You for your interest!",
         html: SSR.render('regEmail', emailData)
     });
+    process.env.MAIL_URL = Meteor.settings.private.smtp;
+
     console.log('Sent Email ' + sub.email);
 }
 

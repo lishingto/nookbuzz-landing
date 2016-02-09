@@ -20,7 +20,6 @@ function subscribeNewsletterCtrl($scope, $window, $reactive) {
     $scope.isFormVertical = ($window.innerWidth / $window.innerHeight) <= 1;
 
     angular.element($window).bind('resize', function () {
-
         $scope.isFormVertical = ($window.innerWidth / $window.innerHeight) <= 1;
 
         // manuall $digest required as resize event

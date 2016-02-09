@@ -3,7 +3,6 @@ Meteor.publish("mailer", function () {
         return Mailer.find({});
     }
 });
-
 Meteor.methods({
     createMail: function (subject, htmlBody) {
         if (this.userId) {
@@ -55,6 +54,7 @@ Meteor.methods({
                 subject: mail.subject,
                 html: SSR.render('custEmail')
             });
+            console.log("MAIL_URL is now "+process.env.MAIL_URL);
 
             //Update Records
             Mailer.update({

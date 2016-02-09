@@ -7,7 +7,7 @@ angular.module('nblanding').directive('mailerForm', function () {
     }
 });
 
-function mailerFormCtrl($scope, $reactive, $state, $stateParams) {
+function mailerFormCtrl($scope, $reactive, $state, $stateParams, $q) {
     $reactive(this).attach($scope);
 
     this.mailerId = $stateParams.mailerId;
@@ -15,7 +15,7 @@ function mailerFormCtrl($scope, $reactive, $state, $stateParams) {
     if (this.mailerId) {
         this.subscribe("mailer");
 
-        //Edit Mode  
+        //Edit Mode
         this.helpers({
             mailObj: () => {
                 return Mailer.findOne({
@@ -32,7 +32,7 @@ function mailerFormCtrl($scope, $reactive, $state, $stateParams) {
             });
         }
     } else {
-        //Create mode   
+        //Create mode
         this.mailObj = {
             subject: "",
             htmlBody: ""
@@ -44,6 +44,19 @@ function mailerFormCtrl($scope, $reactive, $state, $stateParams) {
             });
         }
     }
+    //Template selection
+    this.subscribe("mail_templates");
+    this.helpers({
+      templates : ()=>{
+        return Templates.find({});
+      }
+    });
+
+    this.changeTemplate = ()=>{
+      var templateFind = Templates.findOne({fileName : this.templateSelection});
+      this.mailObj.htmlBody = templateFind['content'];
+      $(window).trigger('resize');
+    };
 
     this.send = function () {
         var mailToSend = this.mailObj;
